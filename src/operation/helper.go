@@ -5,12 +5,15 @@ import (
 	"strconv"
 )
 
-func convertToInt(s string) int {
+var notInteger = "cannot insert a non-integer value"
+var errNotInteger = errors.New(notInteger)
+
+func convertToInt(s string) (int, error) {
 	i, err := strconv.Atoi(s)
 	if err != nil {
-		panic(err)
+		return i, errNotInteger
 	}
-	return i
+	return i, nil
 }
 
 var stringNonSquareMatrix = "cannot insert a non-square matrix"
