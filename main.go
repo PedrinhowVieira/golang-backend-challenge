@@ -21,7 +21,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	case "/echo":
 		result = echo.Echo(records)
 	case "/sum":
-		result = strconv.Itoa(sum.Sum(records))
+		result = strconv.Itoa(sum.Sum(records)) + "\n"
 	default:
 		result = "Error: wrong path\n"
 	}

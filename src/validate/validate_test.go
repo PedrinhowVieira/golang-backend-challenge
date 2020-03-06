@@ -22,13 +22,6 @@ func TestSquareMatrix(t *testing.T) {
 		err := SquareMatrix(matrix)
 		assertError(t, err, ErrNonSquareMatrix)
 	})
-	t.Run("return error if it is a single number matrix", func(t *testing.T) {
-		matrix := [][]string{
-			{"1"},
-		}
-		err := SquareMatrix(matrix)
-		assertError(t, err, ErrNonSquareMatrix)
-	})
 	t.Run("do nothing if the number of rows and cols are the same", func(t *testing.T) {
 		matrix := [][]string{
 			{"1","2"},
