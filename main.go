@@ -13,15 +13,17 @@ import (
 //		curl -F 'file=@/path/matrix.csv' "localhost:8080/echo"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	records := readfile.ReadFile(w, r)
+	matrix := readfile.ReadFile(w, r)
 	result := ""
 	switch r.URL.Path {
 	case "/echo":
-		result = operation.Echo(records)
+		result = operation.Echo(matrix)
 	case "/sum":
-		result = operation.Sum(records)
+		result = operation.Sum(matrix)
 	case "/multiply":
-		result = operation.Multiply(records)
+		result = operation.Multiply(matrix)
+	case "/flatten":
+		result = operation.Flatten(matrix)
 	default:
 		result = "Error: wrong path\n"
 	}

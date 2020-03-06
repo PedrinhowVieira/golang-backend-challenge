@@ -10,5 +10,6 @@ func Multiply(matrix [][]string) string {
 			value *= convertToInt(matrix[i][j])
 		}
 	}
-	return strconv.Itoa(value) + "\n"
+	response := strconv.Itoa(value) + "\n"
+	return response
 }

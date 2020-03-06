@@ -10,6 +10,7 @@ func Sum(matrix [][]string) string {
 				sum += convertToInt(matrix[i][j])
 			}
 		}
-	return strconv.Itoa(sum) + "\n"
+	response := strconv.Itoa(sum) + "\n"
+	return response
 }
 
