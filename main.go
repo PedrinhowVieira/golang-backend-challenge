@@ -14,16 +14,18 @@ import (
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	matrix := readfile.ReadFile(w, r)
-	result := ""
+	var result string
 	switch r.URL.Path {
 	case "/echo":
 		result = operation.Echo(matrix)
-	case "/sum":
-		result = operation.Sum(matrix)
-	case "/multiply":
-		result = operation.Multiply(matrix)
 	case "/flatten":
 		result = operation.Flatten(matrix)
+	case "/invert":
+		result = operation.Invert(matrix)
+	case "/multiply":
+		result = operation.Multiply(matrix)
+	case "/sum":
+		result = operation.Sum(matrix)
 	default:
 		result = "Error: wrong path\n"
 	}

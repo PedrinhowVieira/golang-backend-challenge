@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Flatten takes a matrix of string elements and returns it as a single string.
 func Flatten(matrix [][]string) string {
 	responses := make([]string, len(matrix))
 	for i, row := range matrix {

@@ -4,6 +4,7 @@
     <list default="true" id="7f33f08b-02cb-42f1-abc6-0eb5af613648" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/operation/flatten.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/flatten.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operation/multiply.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/multiply.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operation/sum.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/sum.go" afterDir="false" />
     </list>
