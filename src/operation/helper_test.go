@@ -1,8 +1,6 @@
-package validate
+package operation
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestSquareMatrix(t *testing.T) {
 	t.Run("return error if number of cols are greater than rows", func(t *testing.T) {
@@ -10,8 +8,8 @@ func TestSquareMatrix(t *testing.T) {
 			{"1","2","3"},
 			{"4","5","6"},
 		}
-		err := SquareMatrix(matrix)
-		assertError(t, err, ErrNonSquareMatrix)
+		err := squareMatrix(matrix)
+		assertError(t, err, errNonSquareMatrix)
 	})
 	t.Run("return error if number of rows are greater than cols", func(t *testing.T) {
 		matrix := [][]string{
@@ -19,15 +17,15 @@ func TestSquareMatrix(t *testing.T) {
 			{"3","4"},
 			{"5","6"},
 		}
-		err := SquareMatrix(matrix)
-		assertError(t, err, ErrNonSquareMatrix)
+		err := squareMatrix(matrix)
+		assertError(t, err, errNonSquareMatrix)
 	})
 	t.Run("do nothing if the number of rows and cols are the same", func(t *testing.T) {
 		matrix := [][]string{
 			{"1","2"},
 			{"3","4"},
 		}
-		err := SquareMatrix(matrix)
+		err := squareMatrix(matrix)
 		if err != nil {
 			t.Errorf("should not returned an error but it did")
 		}
