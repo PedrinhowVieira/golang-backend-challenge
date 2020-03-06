@@ -1,12 +1,10 @@
 package main
 
 import (
-	"echo"
 	"fmt"
 	"net/http"
+	"operation"
 	"readfile"
-	"strconv"
-	"sum"
 )
 
 // Run with
@@ -19,9 +17,11 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	result := ""
 	switch r.URL.Path {
 	case "/echo":
-		result = echo.Echo(records)
+		result = operation.Echo(records)
 	case "/sum":
-		result = strconv.Itoa(sum.Sum(records)) + "\n"
+		result = operation.Sum(records)
+	case "/multiply":
+		result = operation.Multiply(records)
 	default:
 		result = "Error: wrong path\n"
 	}
