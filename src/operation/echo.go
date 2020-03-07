@@ -8,7 +8,7 @@ import (
 // Echo takes a matrix of string elements and returns it as a single string formatted as a matrix.
 func Echo(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix + "\n"
+		return stringNonSquareMatrix
 	}
 	_, intErr := convertMatrixToInt(matrix)
 	if intErr != nil {

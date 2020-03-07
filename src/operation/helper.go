@@ -7,7 +7,7 @@ import (
 
 var notInteger = "cannot insert a non-integer value\n"
 var errNotInteger = errors.New(notInteger)
-var stringNonSquareMatrix = "cannot insert a non-square matrix"
+var stringNonSquareMatrix = "cannot insert a non-square matrix\n"
 var errNonSquareMatrix = errors.New(stringNonSquareMatrix)
 
 func squareMatrix(matrix [][]string) error {

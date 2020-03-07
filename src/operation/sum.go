@@ -7,7 +7,7 @@ import (
 // Sum takes a matrix of string elements and return the sum of all elements as a string.
 func Sum(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix + "\n"
+		return stringNonSquareMatrix
 	}
 	return sumConcurrency(matrix)
 }

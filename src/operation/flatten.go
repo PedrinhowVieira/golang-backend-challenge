@@ -8,7 +8,7 @@ import (
 // Flatten takes a matrix of string elements and returns it as a single string.
 func Flatten(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix + "\n"
+		return stringNonSquareMatrix
 	}
 	_, intErr := convertMatrixToInt(matrix)
 	if intErr != nil {

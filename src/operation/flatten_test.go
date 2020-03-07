@@ -34,7 +34,7 @@ func TestFlatten(t *testing.T) {
 			{"4","5","6"},
 		}
 		err := Flatten(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
@@ -45,7 +45,7 @@ func TestFlatten(t *testing.T) {
 			{"5","6"},
 		}
 		err := Flatten(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
@@ -54,7 +54,7 @@ func TestFlatten(t *testing.T) {
 			{},
 		}
 		err := Flatten(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})

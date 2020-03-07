@@ -8,7 +8,7 @@ import (
 // and returns it as a single string formatted as a matrix.
 func Invert(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix + "\n"
+		return stringNonSquareMatrix
 	}
 	return invertConcurrency(matrix)
 }

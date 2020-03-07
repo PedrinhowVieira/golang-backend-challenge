@@ -34,7 +34,7 @@ func TestInvert(t *testing.T) {
 			{"4","5","6"},
 		}
 		err := Invert(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
@@ -45,7 +45,7 @@ func TestInvert(t *testing.T) {
 			{"5","6"},
 		}
 		err := Invert(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
@@ -54,7 +54,7 @@ func TestInvert(t *testing.T) {
 			{},
 		}
 		err := Invert(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})

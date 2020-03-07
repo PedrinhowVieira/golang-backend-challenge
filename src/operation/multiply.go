@@ -5,7 +5,7 @@ import "strconv"
 // Multiply takes a matrix of string elements and return the multiplication of all elements as a string.
 func Multiply(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix + "\n"
+		return stringNonSquareMatrix
 	}
 	return multiplyConcurrency(matrix)
 }

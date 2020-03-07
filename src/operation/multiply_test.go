@@ -34,7 +34,7 @@ func TestMultiply(t *testing.T) {
 			{"4","5","6"},
 		}
 		err := Multiply(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
@@ -45,7 +45,7 @@ func TestMultiply(t *testing.T) {
 			{"5","6"},
 		}
 		err := Multiply(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
@@ -54,7 +54,7 @@ func TestMultiply(t *testing.T) {
 			{},
 		}
 		err := Multiply(matrix)
-		if err != stringNonSquareMatrix+"\n" {
+		if err != stringNonSquareMatrix {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
