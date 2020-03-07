@@ -39,3 +39,12 @@ func convertMatrixToInt(matrix [][]string) ([][]int, error) {
 	}
 	return convertedMatrix, nil
 }
+
+func copyMatrix(matrix [][]string) [][]string{
+	size := len(matrix)
+	copiedMatrix := make([][]string, size)
+	for i, _ := range matrix {
+		copiedMatrix[i] = make([]string, size)
+	}
+	return copiedMatrix
+}

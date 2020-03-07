@@ -32,7 +32,7 @@ func sumConcurrency(matrix [][]string) string {
 	if intErr != nil {
 		return notInteger
 	}
-	sumChan := make(chan int)
+	channel := make(chan int)
 
 	for i, _ := range intMatrix {
 		go func(v int) {
@@ -40,12 +40,12 @@ func sumConcurrency(matrix [][]string) string {
 			for j, _ := range intMatrix[v] {
 				total += intMatrix[v][j]
 			}
-			sumChan <- total
+			channel <- total
 		}(i)
 	}
 	var total int
 	for i := 0; i < len(intMatrix); i++ {
-		total += <-sumChan
+		total += <-channel
 	}
 	response := strconv.Itoa(total) + "\n"
 	return response

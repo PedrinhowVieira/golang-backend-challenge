@@ -15,6 +15,10 @@ func Flatten(matrix [][]string) string {
 		return notInteger
 	}
 
+	return flatten(matrix)
+}
+
+func flatten(matrix [][]string) string {
 	responses := make([]string, len(matrix))
 	for i, row := range matrix {
 		responses[i] = fmt.Sprintf("%s%s", responses[i], strings.Join(row, ","))

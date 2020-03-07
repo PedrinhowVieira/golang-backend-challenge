@@ -15,6 +15,10 @@ func Echo(matrix [][]string) string {
 		return notInteger
 	}
 
+	return echo(matrix)
+}
+
+func echo(matrix [][]string) string {
 	var response string
 	for _, row := range matrix {
 		response = fmt.Sprintf("%s%s\n", response, strings.Join(row, ","))
