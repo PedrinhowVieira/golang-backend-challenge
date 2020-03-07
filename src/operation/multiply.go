@@ -11,9 +11,9 @@ func Multiply(matrix [][]string) string {
 	total := 1
 	for i, _ := range matrix {
 		for j, _ := range matrix[i] {
-			value, err := convertToInt(matrix[i][j])
+			value, err := strconv.Atoi(matrix[i][j])
 			if err != nil {
-				return notInteger + "\n"
+				return notInteger
 			}
 			total *= value
 		}

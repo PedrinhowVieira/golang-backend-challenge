@@ -2,20 +2,9 @@ package operation
 
 import (
 	"errors"
-	"strconv"
 )
 
-var notInteger = "cannot insert a non-integer value"
-var errNotInteger = errors.New(notInteger)
-
-func convertToInt(s string) (int, error) {
-	i, err := strconv.Atoi(s)
-	if err != nil {
-		return i, errNotInteger
-	}
-	return i, nil
-}
-
+var notInteger = "cannot insert a non-integer value\n"
 var stringNonSquareMatrix = "cannot insert a non-square matrix"
 var errNonSquareMatrix = errors.New(stringNonSquareMatrix)
 

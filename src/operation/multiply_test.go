@@ -58,4 +58,31 @@ func TestMultiply(t *testing.T) {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{"j"},
+		}
+		err := Multiply(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{""},
+		}
+		err := Multiply(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{" "},
+		}
+		err := Multiply(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
 }

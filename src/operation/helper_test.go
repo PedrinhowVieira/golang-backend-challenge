@@ -41,35 +41,7 @@ func TestSquareMatrix(t *testing.T) {
 	})
 }
 
-func TestConvertToInt(t *testing.T) {
-	t.Run("takes a string and returns an integer", func(t *testing.T) {
-		got, _ := convertToInt("8")
-		want := 8
-		if got != want {
-			t.Errorf("got %q but want %q", got, want)
-		}
-	})
-	t.Run("returns an error when the input is not a integer", func(t *testing.T) {
-		_, err := convertToInt("j")
-		assertNotIntError(t, err, errNotInteger)
-	})
-	t.Run("returns an error when the input is empty", func(t *testing.T) {
-		_, err := convertToInt("")
-		assertNotIntError(t, err, errNotInteger)
-	})
-}
-
 func assertError(t *testing.T, got error, want error) {
-	t.Helper()
-	if got == nil {
-		t.Fatal("didn't get an error but wanted one")
-	}
-	if got != want {
-		t.Errorf("got %q, want %q", got, want)
-	}
-}
-
-func assertNotIntError(t *testing.T, got error, want error) {
 	t.Helper()
 	if got == nil {
 		t.Fatal("didn't get an error but wanted one")

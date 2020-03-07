@@ -28,7 +28,6 @@ func TestInvert(t *testing.T) {
 			t.Errorf("got %q but want %q", got, want)
 		}
 	})
-
 	t.Run("return error if number of cols are greater than rows", func(t *testing.T) {
 		matrix := [][]string{
 			{"1","2","3"},
@@ -56,6 +55,34 @@ func TestInvert(t *testing.T) {
 		}
 		err := Invert(matrix)
 		if err != stringNonSquareMatrix+"\n" {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{"j"},
+		}
+		err := Invert(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{""},
+		}
+		err := Invert(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{" "},
+		}
+		err := Invert(matrix)
+		if err != notInteger {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})

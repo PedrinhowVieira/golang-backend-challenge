@@ -7,17 +7,20 @@ func Sum(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
 		return stringNonSquareMatrix + "\n"
 	}
+	return sum(matrix)
+}
 
+func sum(matrix [][]string) string {
 	var total int
-		for i, _ := range matrix {
-			for j, _ := range matrix[i] {
-				value, err := convertToInt(matrix[i][j])
-				if err != nil {
-					return notInteger + "\n"
-				}
-				total += value
+	for i, _ := range matrix {
+		for j, _ := range matrix[i] {
+			value, err := strconv.Atoi(matrix[i][j])
+			if err != nil {
+				return notInteger
 			}
+			total += value
 		}
+	}
 	response := strconv.Itoa(total) + "\n"
 	return response
 }
