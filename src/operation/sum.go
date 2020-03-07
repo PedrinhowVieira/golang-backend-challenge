@@ -1,13 +1,15 @@
 package operation
 
-import "strconv"
+import (
+	"strconv"
+)
 
 // Sum takes a matrix of string elements and return the sum of all elements as a string.
 func Sum(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
 		return stringNonSquareMatrix + "\n"
 	}
-	return sum(matrix)
+	return sumConcurrency(matrix)
 }
 
 func sum(matrix [][]string) string {
@@ -20,6 +22,30 @@ func sum(matrix [][]string) string {
 			}
 			total += value
 		}
+	}
+	response := strconv.Itoa(total) + "\n"
+	return response
+}
+
+func sumConcurrency(matrix [][]string) string {
+	intMatrix, intErr := convertMatrixToInt(matrix)
+	if intErr != nil {
+		return notInteger
+	}
+	sumChan := make(chan int)
+
+	for i, _ := range intMatrix {
+		go func(v int) {
+			var total int
+			for j, _ := range intMatrix[v] {
+				total += intMatrix[v][j]
+			}
+			sumChan <- total
+		}(i)
+	}
+	var total int
+	for i := 0; i < len(intMatrix); i++ {
+		total += <-sumChan
 	}
 	response := strconv.Itoa(total) + "\n"
 	return response
