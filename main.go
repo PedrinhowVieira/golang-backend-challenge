@@ -1,10 +1,10 @@
 package main
 
 import (
+	"file"
 	"fmt"
 	"net/http"
 	"operation"
-	"readfile"
 )
 
 // Run with
@@ -13,7 +13,7 @@ import (
 //		curl -F 'file=@/path/matrix.csv' "localhost:8080/echo"
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	matrix := readfile.ReadFile(w, r)
+	matrix := file.Read(w, r)
 	var result string
 	switch r.URL.Path {
 	case "/echo":

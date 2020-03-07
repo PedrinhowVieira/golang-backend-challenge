@@ -21,8 +21,11 @@ var errNonSquareMatrix = errors.New(stringNonSquareMatrix)
 
 func squareMatrix(matrix [][]string) error {
 	rows := len(matrix)
+	if rows == 0 {
+		return errNonSquareMatrix
+	}
 	cols := len(matrix[rows - 1])
-	if rows != cols{
+	if rows != cols {
 		return errNonSquareMatrix
 	}
 	return nil

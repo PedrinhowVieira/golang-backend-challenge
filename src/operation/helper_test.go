@@ -22,6 +22,13 @@ func TestSquareMatrix(t *testing.T) {
 		err := squareMatrix(matrix)
 		assertError(t, err, errNonSquareMatrix)
 	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{},
+		}
+		err := squareMatrix(matrix)
+		assertError(t, err, errNonSquareMatrix)
+	})
 	t.Run("do nothing if the number of rows and cols are the same", func(t *testing.T) {
 		matrix := [][]string{
 			{"1","2"},
@@ -44,6 +51,10 @@ func TestConvertToInt(t *testing.T) {
 	})
 	t.Run("returns an error when the input is not a integer", func(t *testing.T) {
 		_, err := convertToInt("j")
+		assertNotIntError(t, err, errNotInteger)
+	})
+	t.Run("returns an error when the input is empty", func(t *testing.T) {
+		_, err := convertToInt("")
 		assertNotIntError(t, err, errNotInteger)
 	})
 }
