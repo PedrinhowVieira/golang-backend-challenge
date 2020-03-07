@@ -23,9 +23,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	case "/invert":
 		result = operation.Invert(matrix)
 	case "/multiply":
-		result = operation.Multiply(matrix)
+		result = operation.Multiply(matrix)+"\n"
 	case "/sum":
-		result = operation.Sum(matrix)
+		result = operation.Sum(matrix)+"\n"
 	default:
 		result = "Error: wrong path\n"
 	}

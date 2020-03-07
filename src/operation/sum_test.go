@@ -11,7 +11,7 @@ func TestSum(t *testing.T) {
 			{"2","2"},
 		}
 		got := Sum(matrix)
-		want := "8\n"
+		want := "8"
 		if got != want {
 			t.Errorf("got %q but want %q", got, want)
 		}
@@ -23,7 +23,7 @@ func TestSum(t *testing.T) {
 			{"7","8","9"},
 		}
 		got := Sum(matrix)
-		want := "45\n"
+		want := "45"
 		if got != want {
 			t.Errorf("got %q but want %q", got, want)
 		}

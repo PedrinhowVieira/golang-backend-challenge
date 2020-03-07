@@ -11,7 +11,7 @@ func TestMultiply(t *testing.T) {
 			{"2","2"},
 		}
 		got := Multiply(matrix)
-		want := "16\n"
+		want := "16"
 		if got != want {
 			t.Errorf("got %q but want %q", got, want)
 		}
@@ -23,7 +23,7 @@ func TestMultiply(t *testing.T) {
 			{"7","8","9"},
 		}
 		got := Multiply(matrix)
-		want := "362880\n"
+		want := "362880"
 		if got != want {
 			t.Errorf("got %q but want %q", got, want)
 		}

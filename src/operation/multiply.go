@@ -21,7 +21,7 @@ func multiply(matrix [][]string) string {
 			total *= value
 		}
 	}
-	response := strconv.Itoa(total) + "\n"
+	response := strconv.Itoa(total)
 	return response
 }
 
@@ -45,6 +45,6 @@ func multiplyConcurrency(matrix [][]string) string {
 	for i := 0; i < len(intMatrix); i++ {
 		total *= <-channel
 	}
-	response := strconv.Itoa(total) + "\n"
+	response := strconv.Itoa(total)
 	return response
 }
