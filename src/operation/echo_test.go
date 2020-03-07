@@ -28,4 +28,34 @@ func TestEcho(t *testing.T) {
 			t.Errorf("got %q but want %q", got, want)
 		}
 	})
+	t.Run("return error if number of cols are greater than rows", func(t *testing.T) {
+		matrix := [][]string{
+			{"1","2","3"},
+			{"4","5","6"},
+		}
+		err := Echo(matrix)
+		if err != stringNonSquareMatrix+"\n" {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error if number of rows are greater than cols", func(t *testing.T) {
+		matrix := [][]string{
+			{"1","2"},
+			{"3","4"},
+			{"5","6"},
+		}
+		err := Echo(matrix)
+		if err != stringNonSquareMatrix+"\n" {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{},
+		}
+		err := Echo(matrix)
+		if err != stringNonSquareMatrix+"\n" {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
 }
