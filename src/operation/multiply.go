@@ -7,7 +7,10 @@ func Multiply(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
 		return stringNonSquareMatrix + "\n"
 	}
+	return multiplyConcurrency(matrix)
+}
 
+func multiply(matrix [][]string) string {
 	total := 1
 	for i, _ := range matrix {
 		for j, _ := range matrix[i] {
@@ -17,6 +20,30 @@ func Multiply(matrix [][]string) string {
 			}
 			total *= value
 		}
+	}
+	response := strconv.Itoa(total) + "\n"
+	return response
+}
+
+func multiplyConcurrency(matrix [][]string) string {
+	intMatrix, intErr := convertMatrixToInt(matrix)
+	if intErr != nil {
+		return notInteger
+	}
+	sumChan := make(chan int)
+
+	for i, _ := range intMatrix {
+		go func(v int) {
+			total := 1
+			for j, _ := range intMatrix[v] {
+				total *= intMatrix[v][j]
+			}
+			sumChan <- total
+		}(i)
+	}
+	total := 1
+	for i := 0; i < len(intMatrix); i++ {
+		total *= <-sumChan
 	}
 	response := strconv.Itoa(total) + "\n"
 	return response

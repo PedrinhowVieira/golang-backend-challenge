@@ -10,6 +10,11 @@ func Echo(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
 		return stringNonSquareMatrix + "\n"
 	}
+	_, intErr := convertMatrixToInt(matrix)
+	if intErr != nil {
+		return notInteger
+	}
+
 	var response string
 	for _, row := range matrix {
 		response = fmt.Sprintf("%s%s\n", response, strings.Join(row, ","))

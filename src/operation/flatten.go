@@ -10,6 +10,10 @@ func Flatten(matrix [][]string) string {
 	if squareMatrix(matrix) != nil {
 		return stringNonSquareMatrix + "\n"
 	}
+	_, intErr := convertMatrixToInt(matrix)
+	if intErr != nil {
+		return notInteger
+	}
 
 	responses := make([]string, len(matrix))
 	for i, row := range matrix {

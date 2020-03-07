@@ -58,4 +58,31 @@ func TestEcho(t *testing.T) {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{"j"},
+		}
+		err := Echo(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{""},
+		}
+		err := Echo(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
+	t.Run("return error there is no number inside the matrix", func(t *testing.T) {
+		matrix := [][]string{
+			{" "},
+		}
+		err := Echo(matrix)
+		if err != notInteger {
+			t.Fatal("didn't get an error but wanted one")
+		}
+	})
 }
