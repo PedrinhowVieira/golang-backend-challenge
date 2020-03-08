@@ -87,24 +87,24 @@ func TestMultiply(t *testing.T) {
 	})
 }
 
-//func BenchmarkMultiplyDefault(b *testing.B) {
-//	matrix := generateMatrix(benchmarkMatrixSize)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = multiplyDefault(matrix)
-//	}
-//}
-//func BenchmarkMultiplyDefault2(b *testing.B) {
-//	matrix := generateMatrix(benchmarkMatrixSize)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = multiplyDefault2(matrix)
-//	}
-//}
-//func BenchmarkMultiplyConcurrency(b *testing.B) {
-//	matrix := generateMatrix(benchmarkMatrixSize)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = multiplyConcurrency(matrix)
-//	}
-//}
+func BenchmarkMultiplyDefault(b *testing.B) {
+	matrix := generateMatrix(multiplyBenchmarkThreshold)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = multiplyDefault(matrix)
+	}
+}
+func BenchmarkMultiplyConcurrency(b *testing.B) {
+	matrix := generateMatrix(multiplyBenchmarkThreshold)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = multiplyConcurrency(matrix)
+	}
+}
+func BenchmarkMultiplyConversionIn(b *testing.B) {
+	matrix := generateMatrix(multiplyBenchmarkThreshold)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = multiplyConversionIn(matrix)
+	}
+}

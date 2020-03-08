@@ -88,24 +88,24 @@ func TestInvert(t *testing.T) {
 	})
 }
 
-//func BenchmarkInvertDefault(b *testing.B) {
-//	matrix := generateMatrix(benchmarkMatrixSize)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = invertDefault(matrix)
-//	}
-//}
-//func BenchmarkInvertDefault2(b *testing.B) {
-//	matrix := generateMatrix(benchmarkMatrixSize)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = invertDefault2(matrix)
-//	}
-//}
-//func BenchmarkInvertConcurrency(b *testing.B) {
-//	matrix := generateMatrix(benchmarkMatrixSize)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = invertConcurrency(matrix)
-//	}
-//}
+func BenchmarkInvertDefault(b *testing.B) {
+	matrix := generateMatrix(invertBenchmarkThreshold)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = invertDefault(matrix)
+	}
+}
+func BenchmarkInvertConcurrency(b *testing.B) {
+	matrix := generateMatrix(invertBenchmarkThreshold)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = invertConcurrency(matrix)
+	}
+}
+func BenchmarkInvertConversionIn(b *testing.B) {
+	matrix := generateMatrix(invertBenchmarkThreshold)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = invertConversionIn(matrix)
+	}
+}

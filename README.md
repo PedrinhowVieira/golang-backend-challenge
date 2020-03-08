@@ -1,6 +1,7 @@
 # League Backend Challenge
 
-This challenge consists in a basic web server written in GoLang. It accepts an input and execute one of the five different types of request.
+This challenge consists in a basic web server written in GoLang. It accepts an input and execute one of the five 
+different types of request.
 
 ## The input
 
@@ -86,5 +87,33 @@ To run the test coverage
 go test operation -cover
 ```
 
+## Concurrency
+Two different algorithms, one with concurrency (`'operationName'Concurrency`) and one without (`'operationName'Default`), were develop to improve the performance of the higher 
+cost operations, like Sum, Multiply and Invert. The threshold that chooses which one of these two algorithms will be 
+used was based on a benchmark test.
+> Sum and Multiply threshold: 2500x2500 matrix; Invert threshold: 350x350 matrix.
+
+| Functions                    | Time/Operation |
+|------------------------------|----------------|
+| BenchmarkInvertDefault       | 67101319 ns/op |
+| BenchmarkInvertConcurrency   | 52792818 ns/op |
+| BenchmarkMultiplyDefault     | 57223414 ns/op |
+| BenchmarkMultiplyConcurrency | 56262858 ns/op |
+| BenchmarkSumDefault          | 56098063 ns/op |
+| BenchmarkSumConcurrency      | 55602143 ns/op |
+
+In fact It was developed a third algorithm (`'operationName'ConversionIn`) that instead of converting all the matrix before 
+executing the operation, it converts in the same loop that the operation runs. It shows improvements over the other two 
+functions previously presented.
+> Same thresholds were used.
+
+| Functions                     | Time/Operation |
+|-------------------------------|----------------|
+| BenchmarkInvertConversionIn   | 42739369 ns/op |
+| BenchmarkMultiplyConversionIn | 40981590 ns/op |
+| BenchmarkSumConversionIn      | 39374232 ns/op |
+
+Although the performance improvement of this algorithm, I could not generate a concurrency version of this. So it was kept 
+out of the main operation functions so the comparison of concurrency and non-concurrency could be made.
 ## Authors
 Pedro de Moraes Vieira - pedro.dmvieira@gmail.com

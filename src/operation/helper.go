@@ -10,7 +10,6 @@ var notInteger = "cannot insert a non-integer value\n"
 var errNotInteger = errors.New(notInteger)
 var stringNonSquareMatrix = "cannot insert a non-square matrix\n"
 var errNonSquareMatrix = errors.New(stringNonSquareMatrix)
-var benchmarkMatrixSize = 2000
 
 func squareMatrix(matrix [][]string) error {
 	rows := len(matrix)
