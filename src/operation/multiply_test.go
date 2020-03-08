@@ -85,6 +85,29 @@ func TestMultiply(t *testing.T) {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
+	t.Run("multiply all elements of the a 2x2 matrix with values of 2, with concurrency", func(t *testing.T) {
+		matrix := [][]string{
+			{"2","2"},
+			{"2","2"},
+		}
+		got := multiplyConcurrency(matrix)
+		want := "16"
+		if got != want {
+			t.Errorf("got %q but want %q", got, want)
+		}
+	})
+	t.Run("multiply all elements of any matrix size with any values, with concurrency", func(t *testing.T) {
+		matrix := [][]string{
+			{"1","2","3"},
+			{"4","5","6"},
+			{"7","8","9"},
+		}
+		got := multiplyConcurrency(matrix)
+		want := "362880"
+		if got != want {
+			t.Errorf("got %q but want %q", got, want)
+		}
+	})
 }
 
 func BenchmarkMultiplyDefault(b *testing.B) {

@@ -85,6 +85,29 @@ func TestSum(t *testing.T) {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
+	t.Run("sum all elements of the a 2x2 matrix with values of 2, with concurrency", func(t *testing.T) {
+		matrix := [][]string{
+			{"2","2"},
+			{"2","2"},
+		}
+		got := sumConcurrency(matrix)
+		want := "8"
+		if got != want {
+			t.Errorf("got %q but want %q", got, want)
+		}
+	})
+	t.Run("sum all elements of any matrix size with any values, with concurrency", func(t *testing.T) {
+		matrix := [][]string{
+			{"1","2","3"},
+			{"4","5","6"},
+			{"7","8","9"},
+		}
+		got := sumConcurrency(matrix)
+		want := "45"
+		if got != want {
+			t.Errorf("got %q but want %q", got, want)
+		}
+	})
 }
 
 func BenchmarkSumDefault(b *testing.B) {
