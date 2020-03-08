@@ -90,12 +90,12 @@ used was based on a benchmark test.
 
 | Functions                    | Time/Operation |
 |------------------------------|----------------|
-| BenchmarkInvertDefault       | 67101319 ns/op |
-| BenchmarkInvertConcurrency   | 52792818 ns/op |
-| BenchmarkMultiplyDefault     | 57223414 ns/op |
-| BenchmarkMultiplyConcurrency | 56262858 ns/op |
-| BenchmarkSumDefault          | 56098063 ns/op |
-| BenchmarkSumConcurrency      | 55602143 ns/op |
+| BenchmarkInvertDefault       | 67101319 ns |
+| BenchmarkInvertConcurrency   | 52792818 ns |
+| BenchmarkMultiplyDefault     | 57223414 ns |
+| BenchmarkMultiplyConcurrency | 56262858 ns |
+| BenchmarkSumDefault          | 56098063 ns |
+| BenchmarkSumConcurrency      | 55602143 ns |
 
 In fact It was developed a third algorithm (`'operationName'ConversionIn`) that instead of converting all the matrix before 
 executing the operation, it converts in the same loop that the operation runs. It shows improvements over the other two 
@@ -104,9 +104,9 @@ functions previously presented.
 
 | Functions                     | Time/Operation |
 |-------------------------------|----------------|
-| BenchmarkInvertConversionIn   | 42739369 ns/op |
-| BenchmarkMultiplyConversionIn | 40981590 ns/op |
-| BenchmarkSumConversionIn      | 39374232 ns/op |
+| BenchmarkInvertConversionIn   | 42739369 ns |
+| BenchmarkMultiplyConversionIn | 40981590 ns |
+| BenchmarkSumConversionIn      | 39374232 ns |
 
 Although the performance improvement of this algorithm, I could not generate a concurrency version of this. So it was kept 
 out of the main operation functions so the comparison of concurrency and non-concurrency could be made.
