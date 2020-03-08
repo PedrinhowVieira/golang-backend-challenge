@@ -81,11 +81,6 @@ To run benchmark tests:
 ```
 go test operation -bench=.
 ```
-#### Test Coverage
-To run the test coverage
-```
-go test operation -cover
-```
 
 ## Concurrency
 Two different algorithms, one with concurrency (`'operationName'Concurrency`) and one without (`'operationName'Default`), were develop to improve the performance of the higher 
