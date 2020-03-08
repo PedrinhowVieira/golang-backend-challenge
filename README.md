@@ -27,7 +27,7 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/echo"
 ``` 
 
 #### Invert
-Return the matrix as a string in matrix format where the columns and rows are inverted. The request is accessed with:
+Returns the matrix as a string in matrix format where the columns and rows are inverted. The request is accessed with:
 ```
 curl -F 'file=@/path/matrix.csv' "localhost:8080/invert"
 
@@ -38,7 +38,7 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/invert"
 ``` 
 
 #### Flatten
-Return the matrix as a 1 line string, with values separated by commas. The request is accessed with:
+Returns the matrix as a 1 line string, with values separated by commas. The request is accessed with:
 ```
 curl -F 'file=@/path/matrix.csv' "localhost:8080/flatten"
 
@@ -47,7 +47,7 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/flatten"
 ``` 
 
 #### Sum
-Return the sum of the integers in the matrix. The request is accessed with:
+Returns the sum of the integers in the matrix. The request is accessed with:
 ```
 curl -F 'file=@/path/matrix.csv' "localhost:8080/sum"
 
@@ -56,7 +56,7 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/sum"
 ``` 
 
 #### Multiply
-Return the product of the integers in the matrix. The request is accessed with:
+Returns the product of the integers in the matrix. The request is accessed with:
 ```
 curl -F 'file=@/path/matrix.csv' "localhost:8080/multiply"
 
