@@ -51,3 +51,18 @@ func invertConcurrency(matrix [][]string) string {
 	response := echo(invertedMatrix)
 	return response
 }
+
+func invertDefault2(matrix [][]string) string {
+	_, intErr := convertMatrixToInt(matrix)
+	if intErr != nil {
+		return notInteger
+	}
+	invertedMatrix := copyMatrix(matrix)
+	for i, _ := range matrix {
+		for j, _ := range matrix[i] {
+			invertedMatrix[j][i] = matrix[i][j]
+		}
+	}
+	response := Echo(invertedMatrix)
+	return response
+}

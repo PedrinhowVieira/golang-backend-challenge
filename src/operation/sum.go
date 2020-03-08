@@ -56,6 +56,7 @@ func sumDefault2(matrix [][]string) string {
 	if intErr != nil {
 		return notInteger
 	}
+
 	var total int
 	for i, _ := range intMatrix {
 		for j, _ := range intMatrix[i] {

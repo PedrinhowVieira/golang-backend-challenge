@@ -4,30 +4,6 @@ import (
 	"testing"
 )
 
-var ronaldo = 2000
-
-func BenchmarkSumDefault(b *testing.B) {
-	matrix := generateMatrix(ronaldo)
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		_ = sumDefault(matrix)
-	}
-}
-func BenchmarkSumDefault2(b *testing.B) {
-	matrix := generateMatrix(ronaldo)
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		_ = sumDefault2(matrix)
-	}
-}
-func BenchmarkSumConcurrency(b *testing.B) {
-	matrix := generateMatrix(ronaldo)
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		_ = sumConcurrency(matrix)
-	}
-}
-
 func TestSum(t *testing.T) {
 	t.Run("sum all elements of the a 2x2 matrix with values of 2", func(t *testing.T) {
 		matrix := [][]string{
@@ -109,4 +85,26 @@ func TestSum(t *testing.T) {
 			t.Fatal("didn't get an error but wanted one")
 		}
 	})
+}
+
+func BenchmarkSumDefault(b *testing.B) {
+	matrix := generateMatrix(benchmarkMatrixSize)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = sumDefault(matrix)
+	}
+}
+func BenchmarkSumDefault2(b *testing.B) {
+	matrix := generateMatrix(benchmarkMatrixSize)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = sumDefault2(matrix)
+	}
+}
+func BenchmarkSumConcurrency(b *testing.B) {
+	matrix := generateMatrix(benchmarkMatrixSize)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		_ = sumConcurrency(matrix)
+	}
 }

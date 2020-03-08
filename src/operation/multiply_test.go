@@ -4,21 +4,6 @@ import (
 	"testing"
 )
 
-//func BenchmarkMultiplyDefault(b *testing.B) {
-//	matrix := generateMatrix(10)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = multiplyDefault(matrix)
-//	}
-//}
-//func BenchmarkMultiplyConcurrency(b *testing.B) {
-//	matrix := generateMatrix(10)
-//	b.ResetTimer()
-//	for i := 0; i < b.N; i++ {
-//		_ = multiplyConcurrency(matrix)
-//	}
-//}
-
 func TestMultiply(t *testing.T) {
 	t.Run("multiply all elements of the a 2x2 matrix with values of 2", func(t *testing.T) {
 		matrix := [][]string{
@@ -101,3 +86,25 @@ func TestMultiply(t *testing.T) {
 		}
 	})
 }
+
+//func BenchmarkMultiplyDefault(b *testing.B) {
+//	matrix := generateMatrix(benchmarkMatrixSize)
+//	b.ResetTimer()
+//	for i := 0; i < b.N; i++ {
+//		_ = multiplyDefault(matrix)
+//	}
+//}
+//func BenchmarkMultiplyDefault2(b *testing.B) {
+//	matrix := generateMatrix(benchmarkMatrixSize)
+//	b.ResetTimer()
+//	for i := 0; i < b.N; i++ {
+//		_ = multiplyDefault2(matrix)
+//	}
+//}
+//func BenchmarkMultiplyConcurrency(b *testing.B) {
+//	matrix := generateMatrix(benchmarkMatrixSize)
+//	b.ResetTimer()
+//	for i := 0; i < b.N; i++ {
+//		_ = multiplyConcurrency(matrix)
+//	}
+//}

@@ -48,3 +48,18 @@ func multiplyConcurrency(matrix [][]string) string {
 	response := strconv.Itoa(total)
 	return response
 }
+
+func multiplyDefault2(matrix [][]string) string {
+	intMatrix, intErr := convertMatrixToInt(matrix)
+	if intErr != nil {
+		return notInteger
+	}
+	total := 1
+	for i, _ := range intMatrix {
+		for j, _ := range intMatrix[i] {
+			total *= intMatrix[i][j]
+		}
+	}
+	response := strconv.Itoa(total)
+	return response
+}
