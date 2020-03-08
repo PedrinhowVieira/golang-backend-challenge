@@ -66,7 +66,7 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/multiply"
 
 ## The web server
 
-The wer server is started at the root of the project where the `main.go` file is located, with:
+The web server is started at the root of the project where the `main.go` file is located, with:
 ```
 go run .
 ```
@@ -83,7 +83,7 @@ go test operation -bench=.
 ```
 
 ## Concurrency
-Two different algorithms, one with concurrency (`'operationName'Concurrency`) and one without (`'operationName'Default`), were develop to improve the performance of the higher 
+Two different algorithms, one with concurrency (`'operationName'Concurrency`) and one without (`'operationName'Default`), were developed to improve the performance of the higher 
 cost operations, like Sum, Multiply and Invert. The threshold that chooses which one of these two algorithms will be 
 used was based on a benchmark test.
 > Sum and Multiply threshold: 2500x2500 matrix; Invert threshold: 350x350 matrix.
@@ -97,7 +97,7 @@ used was based on a benchmark test.
 | BenchmarkSumDefault          | 56098063 ns |
 | BenchmarkSumConcurrency      | 55602143 ns |
 
-In fact It was developed a third algorithm (`'operationName'ConversionIn`) that instead of converting all the matrix before 
+In fact It was developed a third algorithm (`'operationName'ConversionIn`) that instead of converting all the matrix to integer before 
 executing the operation, it converts in the same loop that the operation runs. It shows improvements over the other two 
 functions previously presented.
 > Same thresholds were used.
