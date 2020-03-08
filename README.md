@@ -65,7 +65,7 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/multiply"
 
 ## The web server
 
-The wer server is started in the root of the project where the `main.go` file is located, with:
+The wer server is started at the root of the project where the `main.go` file is located, with:
 ```
 go run .
 ```
