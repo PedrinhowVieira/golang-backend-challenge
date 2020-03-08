@@ -1,67 +1,90 @@
 # League Backend Challenge
 
-In main.go you will find a basic web server written in GoLang. It accepts a single request _/echo_. Extend the webservice with the ability to perform the following operations
+This challenge consists in a basic web server written in GoLang. It accepts an input and execute one of the five different type of requests.
 
-Given an uploaded csv file
+## The input
+
+It must be a csv file containing a square matrix of integers.
+> In mathematics, a square matrix is a matrix with the same number of rows and columns.
 ```
+// input example
 1,2,3
 4,5,6
 7,8,9
 ```
+## The requests
 
-1. Echo (given)
-    - Return the matrix as a string in matrix format.
-    
-    ```
-    // Expected output
-    1,2,3
-    4,5,6
-    7,8,9
-    ``` 
-2. Invert
-    - Return the matrix as a string in matrix format where the columns and rows are inverted
-    ```
-    // Expected output
-    1,4,7
-    2,5,8
-    3,6,9
-    ``` 
-3. Flatten
-    - Return the matrix as a 1 line string, with values separated by commas.
-    ```
-    // Expected output
-    1,2,3,4,5,6,7,8,9
-    ``` 
-4. Sum
-    - Return the sum of the integers in the matrix
-    ```
-    // Expected output
-    45
-    ``` 
-5. Multiply
-    - Return the product of the integers in the matrix
-    ```
-    // Expected output
-    362880
-    ``` 
+#### Echo
+Returns the matrix as a string in matrix format. The request is accessed with:
+```
+curl -F 'file=@/path/matrix.csv' "localhost:8080/echo"
 
-The input file to these functions is a matrix, of any dimension where the number of rows are equal to the number of columns (square). Each value is an integer, and there is no header row. matrix.csv is example valid input.  
+// output example
+1,2,3
+4,5,6
+7,8,9
+``` 
 
-Run web server
+#### Invert
+Return the matrix as a string in matrix format where the columns and rows are inverted. The request is accessed with:
+```
+curl -F 'file=@/path/matrix.csv' "localhost:8080/invert"
+
+// output example
+1,4,7
+2,5,8
+3,6,9
+``` 
+
+#### Flatten
+Return the matrix as a 1 line string, with values separated by commas. The request is accessed with:
+```
+curl -F 'file=@/path/matrix.csv' "localhost:8080/flatten"
+
+// output example
+1,2,3,4,5,6,7,8,9
+``` 
+
+#### Sum
+Return the sum of the integers in the matrix. The request is accessed with:
+```
+curl -F 'file=@/path/matrix.csv' "localhost:8080/sum"
+
+// output example
+45
+``` 
+
+#### Multiply
+Return the product of the integers in the matrix. The request is accessed with:
+```
+curl -F 'file=@/path/matrix.csv' "localhost:8080/multiply"
+
+// output example
+362880
+``` 
+
+## The web server
+
+The wer server is started in the root of the project where the `main.go` file is located, with:
 ```
 go run .
 ```
 
-Send request
+## Tests
+To run tests on the operation package:
 ```
-curl -F 'file=@/path/matrix.csv' "localhost:8080/echo"
+go test operation
+```
+#### Benchmark
+To run benchmark tests:
+```
+go test operation -bench=.
+```
+#### Test Coverage
+To run the test coverage
+```
+go test operation -cover
 ```
 
-## What we're looking for
-
-- The solution runs
-- The solution performs all cases correctly
-- The code is easy to read
-- The code is reasonably documented
-- The code is tested
-- The code is robust and handles invalid input and provides helpful error messages
+## Authors
+Pedro de Moraes Vieira - pedro.dmvieira@gmail.com

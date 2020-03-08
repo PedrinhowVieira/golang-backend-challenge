@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7f33f08b-02cb-42f1-abc6-0eb5af613648" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operation/echo.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/echo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operation/echo_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/echo_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operation/flatten.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/flatten.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operation/flatten_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/flatten_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operation/helper.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/helper.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operation/invert.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/invert.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operation/invert_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/invert_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operation/multiply.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/multiply.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operation/multiply_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/multiply_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/operation/sum.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/sum.go" afterDir="false" />

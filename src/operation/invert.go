@@ -13,7 +13,7 @@ func Invert(matrix [][]string) string {
 	return invertConcurrency(matrix)
 }
 
-func invert(matrix [][]string) string {
+func invertDefault(matrix [][]string) string {
 	invertedMatrix := copyMatrix(matrix)
 	for i, _ := range matrix {
 		for j, _ := range matrix[i] {

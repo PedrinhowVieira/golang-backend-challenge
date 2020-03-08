@@ -10,7 +10,7 @@ func Multiply(matrix [][]string) string {
 	return multiplyConcurrency(matrix)
 }
 
-func multiply(matrix [][]string) string {
+func multiplyDefault(matrix [][]string) string {
 	total := 1
 	for i, _ := range matrix {
 		for j, _ := range matrix[i] {

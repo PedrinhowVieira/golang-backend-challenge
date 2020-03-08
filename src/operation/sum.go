@@ -12,7 +12,7 @@ func Sum(matrix [][]string) string {
 	return sumConcurrency(matrix)
 }
 
-func sum(matrix [][]string) string {
+func sumDefault(matrix [][]string) string {
 	var total int
 	for i, _ := range matrix {
 		for j, _ := range matrix[i] {
@@ -46,6 +46,21 @@ func sumConcurrency(matrix [][]string) string {
 	var total int
 	for i := 0; i < len(intMatrix); i++ {
 		total += <-channel
+	}
+	response := strconv.Itoa(total)
+	return response
+}
+
+func sumDefault2(matrix [][]string) string {
+	intMatrix, intErr := convertMatrixToInt(matrix)
+	if intErr != nil {
+		return notInteger
+	}
+	var total int
+	for i, _ := range intMatrix {
+		for j, _ := range intMatrix[i] {
+			total += intMatrix[i][j]
+		}
 	}
 	response := strconv.Itoa(total)
 	return response
