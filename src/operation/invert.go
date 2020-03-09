@@ -9,9 +9,6 @@ var invertBenchmarkThreshold = 350
 // Invert takes a matrix of string elements, invert the rows an columns
 // and returns it as a single string formatted as a matrix.
 func Invert(matrix [][]string) string {
-	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix
-	}
 	// analyses the matrix size to choose the algorithm with most performance based on a benchmark test
 	if  len(matrix) < invertBenchmarkThreshold {
 		return invertDefault(matrix)
@@ -21,10 +18,6 @@ func Invert(matrix [][]string) string {
 }
 
 func invertDefault(matrix [][]string) string {
-	_, intErr := convertMatrixToInt(matrix)
-	if intErr != nil {
-		return notInteger
-	}
 	invertedMatrix := copyMatrix(matrix)
 	for i, _ := range matrix {
 		for j, _ := range matrix[i] {
@@ -36,14 +29,8 @@ func invertDefault(matrix [][]string) string {
 }
 
 func invertConcurrency(matrix [][]string) string {
-	_, intErr := convertMatrixToInt(matrix)
-	if intErr != nil {
-		return notInteger
-	}
-
 	invertedMatrix := copyMatrix(matrix)
 	channel := make(chan [][]string)
-
 	for i, _ := range matrix {
 		go func(v int) {
 			for j, _ := range matrix[v] {
@@ -55,7 +42,7 @@ func invertConcurrency(matrix [][]string) string {
 	for i := 0; i < len(invertedMatrix); i++ {
 		invertedMatrix = <-channel
 	}
-	response := echo(invertedMatrix)
+	response := Echo(invertedMatrix)
 	return response
 }
 
@@ -65,7 +52,7 @@ func invertConversionIn(matrix [][]string) string {
 		for j, _ := range matrix[i] {
 			_, err := strconv.Atoi(matrix[i][j])
 			if err != nil {
-				return notInteger
+				return InvalidMatrix
 			}
 			invertedMatrix[j][i] = matrix[i][j]
 		}

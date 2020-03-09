@@ -5,23 +5,16 @@ import "strconv"
 var multiplyBenchmarkThreshold = 2500
 
 // Multiply takes a matrix of string elements and return the multiplication of all elements as a string.
-func Multiply(matrix [][]string) string {
-	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix
-	}
+func Multiply(intMatrix [][]int) string {
 	// analyses the matrix size to choose the algorithm with most performance based on a benchmark test
-	if len(matrix) < multiplyBenchmarkThreshold {
-		return multiplyDefault(matrix)
+	if len(intMatrix) < multiplyBenchmarkThreshold {
+		return multiplyDefault(intMatrix)
 	} else {
-		return multiplyConcurrency(matrix)
+		return multiplyConcurrency(intMatrix)
 	}
 }
 
-func multiplyDefault(matrix [][]string) string {
-	intMatrix, intErr := convertMatrixToInt(matrix)
-	if intErr != nil {
-		return notInteger
-	}
+func multiplyDefault(intMatrix [][]int) string {
 	total := 1
 	for i, _ := range intMatrix {
 		for j, _ := range intMatrix[i] {
@@ -32,13 +25,8 @@ func multiplyDefault(matrix [][]string) string {
 	return response
 }
 
-func multiplyConcurrency(matrix [][]string) string {
-	intMatrix, intErr := convertMatrixToInt(matrix)
-	if intErr != nil {
-		return notInteger
-	}
+func multiplyConcurrency(intMatrix [][]int) string {
 	channel := make(chan int)
-
 	for i, _ := range intMatrix {
 		go func(v int) {
 			total := 1
@@ -62,7 +50,7 @@ func multiplyConversionIn(matrix [][]string) string {
 		for j, _ := range matrix[i] {
 			value, err := strconv.Atoi(matrix[i][j])
 			if err != nil {
-				return notInteger
+				return InvalidMatrix
 			}
 			total *= value
 		}

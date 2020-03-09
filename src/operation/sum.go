@@ -7,24 +7,16 @@ import (
 var sumBenchmarkThreshold = 2500
 
 // Sum takes a matrix of string elements and return the sum of all elements as a string.
-func Sum(matrix [][]string) string {
-	if squareMatrix(matrix) != nil {
-		return stringNonSquareMatrix
-	}
+func Sum(intMatrix [][]int) string {
 	// analyses the matrix size to choose the algorithm with most performance based on a benchmark test
-	if len(matrix) < sumBenchmarkThreshold {
-		return sumDefault(matrix)
+	if len(intMatrix) < sumBenchmarkThreshold {
+		return sumDefault(intMatrix)
 	} else {
-		return sumConcurrency(matrix)
+		return sumConcurrency(intMatrix)
 	}
 }
 
-func sumDefault(matrix [][]string) string {
-	intMatrix, intErr := convertMatrixToInt(matrix)
-	if intErr != nil {
-		return notInteger
-	}
-
+func sumDefault(intMatrix [][]int) string {
 	var total int
 	for i, _ := range intMatrix {
 		for j, _ := range intMatrix[i] {
@@ -35,13 +27,8 @@ func sumDefault(matrix [][]string) string {
 	return response
 }
 
-func sumConcurrency(matrix [][]string) string {
-	intMatrix, intErr := convertMatrixToInt(matrix)
-	if intErr != nil {
-		return notInteger
-	}
+func sumConcurrency(intMatrix [][]int) string {
 	channel := make(chan int)
-
 	for i, _ := range intMatrix {
 		go func(v int) {
 			var total int
@@ -65,7 +52,7 @@ func sumConversionIn(matrix [][]string) string {
 		for j, _ := range matrix[i] {
 			value, err := strconv.Atoi(matrix[i][j])
 			if err != nil {
-				return notInteger
+				return InvalidMatrix
 			}
 			total += value
 		}
