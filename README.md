@@ -64,12 +64,22 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/multiply"
 362880
 ``` 
 ## Installation
-The project files should be placed directly at the `GOPATH`
+Place the project files where you want, go to where the `main.go` file is located and than extract the current path with:
 ```
+$ pwd
+
+// output example
+/home/myuser/go/league-challenge
+```
+Than set the current path as a `GOPATH`, this will be reset on every new terminal window.
+```
+$ export GOPATH=/home/myuser/go/league-challenge
+
+// example structure
 GOAPTH/
- |_ main.go
- |_ README.md
- |_ src/
+  |_ main.go
+  |_ README.md
+  |_ src/
     |_ file/
     |_ operation/
 ```
@@ -77,26 +87,26 @@ GOAPTH/
 ## The web server
 The web server is started at the root of the project where the `main.go` file is located, with:
 ```
-go run .
+$ go run .
 ```
 
 ## Tests
 To run tests on the operation package:
 ```
-go test operation
+$ go test operation
 // from the GOPATH
 // or
-go test .
+$ go test .
 // from the operation folder
 
 ```
 #### Benchmark
 To run benchmark tests:
 ```
-go test operation -bench=.
+$ go test operation -bench=.
 // from the GOPATH
 // or
-go test . -bench=.
+$ go test . -bench=.
 // from the operation folder
 
 ```
