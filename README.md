@@ -63,9 +63,18 @@ curl -F 'file=@/path/matrix.csv' "localhost:8080/multiply"
 // output example
 362880
 ``` 
+## Installation
+The project files should be placed directly at the `GOPATH`
+```
+GOAPTH/
+ |_ main.go
+ |_ README.md
+ |_ src/
+    |_ file/
+    |_ operation/
+```
 
 ## The web server
-
 The web server is started at the root of the project where the `main.go` file is located, with:
 ```
 go run .
@@ -75,11 +84,21 @@ go run .
 To run tests on the operation package:
 ```
 go test operation
+// from the GOPATH
+// or
+go test .
+// from the operation folder
+
 ```
 #### Benchmark
 To run benchmark tests:
 ```
 go test operation -bench=.
+// from the GOPATH
+// or
+go test . -bench=.
+// from the operation folder
+
 ```
 
 ## Concurrency
