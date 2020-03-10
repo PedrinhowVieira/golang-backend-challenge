@@ -54,21 +54,23 @@ func TestMultiply(t *testing.T) {
 }
 
 func BenchmarkMultiplyDefault(b *testing.B) {
-	intMatrix, _ := generateMatrix(sumBenchmarkThreshold)
+	matrix := generateMatrix(multiplyBenchmarkThreshold)
 	b.ResetTimer()
+	intMatrix, _ := Validate(matrix)
 	for i := 0; i < b.N; i++ {
 		_ = multiplyDefault(intMatrix)
 	}
 }
 func BenchmarkMultiplyConcurrency(b *testing.B) {
-	intMatrix, _ := generateMatrix(sumBenchmarkThreshold)
+	matrix := generateMatrix(multiplyBenchmarkThreshold)
 	b.ResetTimer()
+	intMatrix, _ := Validate(matrix)
 	for i := 0; i < b.N; i++ {
 		_ = multiplyConcurrency(intMatrix)
 	}
 }
 func BenchmarkMultiplyConversionIn(b *testing.B) {
-	_, matrix := generateMatrix(multiplyBenchmarkThreshold)
+	matrix := generateMatrix(multiplyBenchmarkThreshold)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		_ = multiplyConversionIn(matrix)

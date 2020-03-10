@@ -54,21 +54,23 @@ func TestSum(t *testing.T) {
 }
 
 func BenchmarkSumDefault(b *testing.B) {
-	intMatrix, _ := generateMatrix(sumBenchmarkThreshold)
+	matrix:= generateMatrix(sumBenchmarkThreshold)
 	b.ResetTimer()
+	intMatrix, _ := Validate(matrix)
 	for i := 0; i < b.N; i++ {
 		_ = sumDefault(intMatrix)
 	}
 }
 func BenchmarkSumConcurrency(b *testing.B) {
-	intMatrix, _ := generateMatrix(sumBenchmarkThreshold)
+	matrix:= generateMatrix(sumBenchmarkThreshold)
 	b.ResetTimer()
+	intMatrix, _ := Validate(matrix)
 	for i := 0; i < b.N; i++ {
 		_ = sumConcurrency(intMatrix)
 	}
 }
 func BenchmarkSumConversionIn(b *testing.B) {
-	_, matrix := generateMatrix(sumBenchmarkThreshold)
+	matrix:= generateMatrix(sumBenchmarkThreshold)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		_ = sumConversionIn(matrix)

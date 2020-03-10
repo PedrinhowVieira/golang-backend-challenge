@@ -54,21 +54,23 @@ func TestInvert(t *testing.T) {
 }
 
 func BenchmarkInvertDefault(b *testing.B) {
-	_, matrix := generateMatrix(invertBenchmarkThreshold)
+	matrix := generateMatrix(invertBenchmarkThreshold)
 	b.ResetTimer()
+	Validate(matrix)
 	for i := 0; i < b.N; i++ {
 		_ = invertDefault(matrix)
 	}
 }
 func BenchmarkInvertConcurrency(b *testing.B) {
-	_, matrix := generateMatrix(invertBenchmarkThreshold)
+	matrix := generateMatrix(invertBenchmarkThreshold)
 	b.ResetTimer()
+	Validate(matrix)
 	for i := 0; i < b.N; i++ {
 		_ = invertConcurrency(matrix)
 	}
 }
 func BenchmarkInvertConversionIn(b *testing.B) {
-	_, matrix := generateMatrix(invertBenchmarkThreshold)
+	matrix := generateMatrix(invertBenchmarkThreshold)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		_ = invertConversionIn(matrix)
