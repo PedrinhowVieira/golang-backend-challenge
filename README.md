@@ -1,4 +1,4 @@
-# League Backend Challenge
+# GoLang Backend Challenge
 
 This challenge consists in a basic web server written in GoLang. It accepts an input and execute one of the five 
 different types of request.
